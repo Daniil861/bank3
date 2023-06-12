@@ -265,4 +265,6 @@ function hideAllsearchItems() {
 	searchItems.forEach(item => item.classList.add('_hide'));
 }
 
-document.querySelector('#search-box .header__input').addEventListener('input', inputHandler);
+if (document.querySelector('#search-box .header__input')) {
+	document.querySelector('#search-box .header__input').addEventListener('input', inputHandler);
+}
