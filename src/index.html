@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Bank3"
+})
+
+<body>
+	<div class="wrapper">
+		<div class="wrapper__loading-screen loading-screen">
+			<div class="loading-screen__body">
+				<div class="loading-screen__icon _icon-loader"></div>
+				<div class="loading-screen__text">Загрузка</div>
+			</div>
+		</div>
+		<div class="wrapper__start-screen start-screen">
+			<div class="start-screen__body">
+				<div class="start-screen__header header-start-screen">
+					<div class="header-start-screen__body">
+						<div class="header-start-screen__icon _icon-loader"></div>
+						<div class="header-start-screen__text">Добро пожаловать!</div>
+					</div>
+				</div>
+				<div class="start-screen__input input-start-screen">
+					<form action="#" data-dev class="input-start-screen__body">
+						<div class="input-start-screen__data-input">
+							<input type="text" placeholder="Имя" data-required autocomplete="off" name="name"
+								class="input-start-screen__name">
+							<input type="text" placeholder="Фамилия" data-required autocomplete="off" name="lastName"
+								class="input-start-screen__lastName">
+						</div>
+						<div class="input-start-screen__privacy-box">
+							<a href="privacy.html" class="input-start-screen__privacy">Политика конфиденциальности</a>
+							<div class="input-start-screen__checkbox checkbox">
+								<input id="c_2" data-required class="checkbox__input" type="checkbox" value="1" name="form[]">
+								<label for="c_2" class="checkbox__label"></label>
+							</div>
+						</div>
+						<div class="input-start-screen__button-box">
+							<button type="submit" class="input-start-screen__button button"><span>Продолжить</span></button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="wrapper__main main _hide">
+			<div class="main__body">
+				<div class="main__app app-main">
+					<div class="app-main__body">
+						<div data-tabs class="app-main__tabs">
+							<nav data-tabs-titles class="app-main__navigation">
+								<button type="button" class="app-main__title _tab-active">
+									<svg width="28" height="25" viewBox="0 0 28 25" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M10.6055 23.4023V14.8711C10.6055 14.6055 10.6875 14.3906 10.8516 14.2266C11.0156 14.0625 11.2344 13.9805 11.5078 13.9805H16.4766C16.7422 13.9805 16.957 14.0625 17.1211 14.2266C17.2852 14.3906 17.3672 14.6055 17.3672 14.8711V23.4023H10.6055ZM6.02344 24.6094C5.1875 24.6094 4.53516 24.3828 4.06641 23.9297C3.60547 23.4766 3.375 22.8398 3.375 22.0195V9.07031L5.26172 7.79297V21.5391C5.26172 21.9219 5.35938 22.2148 5.55469 22.418C5.75781 22.6211 6.04688 22.7227 6.42188 22.7227H21.4805C21.8555 22.7227 22.1406 22.6211 22.3359 22.418C22.5312 22.2148 22.6289 21.9219 22.6289 21.5391V7.78125L24.5156 9.07031V22.0195C24.5156 22.8398 24.2852 23.4766 23.8242 23.9297C23.3633 24.3828 22.7148 24.6094 21.8789 24.6094H6.02344ZM0 11.5664C0 11.2617 0.125 11.0078 0.375 10.8047L12.5859 0.550781C13.0234 0.183594 13.4922 0 13.9922 0C14.5 0 14.9727 0.183594 15.4102 0.550781L27.6094 10.8047C27.8516 11.0078 27.9727 11.2734 27.9727 11.6016C27.9727 11.8828 27.875 12.1055 27.6797 12.2695C27.4844 12.4258 27.25 12.5039 26.9766 12.5039C26.8125 12.5039 26.6602 12.4648 26.5195 12.3867C26.3867 12.3086 26.2617 12.2227 26.1445 12.1289L14.4141 2.28516C14.2812 2.16797 14.1406 2.10938 13.9922 2.10938C13.8516 2.10938 13.7148 2.16797 13.582 2.28516L1.85156 12.1289C1.72656 12.2227 1.59375 12.3086 1.45312 12.3867C1.32031 12.4648 1.17188 12.5039 1.00781 12.5039C0.695312 12.5039 0.449219 12.4102 0.269531 12.2227C0.0898438 12.0273 0 11.8086 0 11.5664ZM21.5742 6.28125V3.35156C21.5742 3.09375 21.6523 2.89062 21.8086 2.74219C21.9648 2.58594 22.168 2.50781 22.418 2.50781H23.6719C23.9297 2.50781 24.1328 2.58594 24.2812 2.74219C24.4375 2.89062 24.5156 3.09375 24.5156 3.35156V8.76562L21.5742 6.28125Z"
+											fill="#13B5E7" />
+									</svg>
+									<span>Главная</span>
+								</button>
+								<button type="button" class="app-main__title">
+									<svg width="31" height="20" viewBox="0 0 31 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M0 18.4336V0.925781C0 0.644531 0.0859375 0.421875 0.257812 0.257812C0.429688 0.0859375 0.65625 0 0.9375 0H30.0117C30.293 0 30.5156 0.0859375 30.6797 0.257812C30.8516 0.421875 30.9375 0.644531 30.9375 0.925781V18.4336C30.9375 18.7148 30.8516 18.9414 30.6797 19.1133C30.5156 19.2852 30.293 19.3711 30.0117 19.3711H0.9375C0.65625 19.3711 0.429688 19.2852 0.257812 19.1133C0.0859375 18.9414 0 18.7148 0 18.4336ZM1.88672 17.1445C1.88672 17.3711 2 17.4844 2.22656 17.4844H28.7109C28.9375 17.4844 29.0508 17.3711 29.0508 17.1445V2.22656C29.0508 2 28.9375 1.88672 28.7109 1.88672H2.22656C2 1.88672 1.88672 2 1.88672 2.22656V17.1445ZM3.15234 15.5273V3.83203C3.15234 3.37109 3.37891 3.14062 3.83203 3.14062H27.1172C27.5703 3.14062 27.7969 3.37109 27.7969 3.83203V15.5273C27.7969 15.9883 27.5703 16.2188 27.1172 16.2188H3.83203C3.37891 16.2188 3.15234 15.9883 3.15234 15.5273ZM4.33594 14.7656C4.33594 14.9453 4.42188 15.0352 4.59375 15.0352H26.3438C26.5234 15.0352 26.6133 14.9453 26.6133 14.7656V4.59375C26.6133 4.41406 26.5234 4.32422 26.3438 4.32422H4.59375C4.42188 4.32422 4.33594 4.41406 4.33594 4.59375V14.7656ZM15.4219 16.2188C14.6016 16.2188 13.8555 15.9531 13.1836 15.4219C12.5117 14.8828 11.9766 14.125 11.5781 13.1484C11.1797 12.1641 10.9805 11.0039 10.9805 9.66797C10.9805 8.33984 11.1797 7.1875 11.5781 6.21094C11.9766 5.23438 12.5117 4.48047 13.1836 3.94922C13.8555 3.41016 14.6016 3.14062 15.4219 3.14062C16.2656 3.14062 17.0312 3.41016 17.7188 3.94922C18.4062 4.48047 18.9531 5.23438 19.3594 6.21094C19.7656 7.1875 19.9688 8.33984 19.9688 9.66797C19.9688 11.0039 19.7656 12.1641 19.3594 13.1484C18.9531 14.125 18.4062 14.8828 17.7188 15.4219C17.0312 15.9531 16.2656 16.2188 15.4219 16.2188ZM15.4219 14.8359C16 14.8359 16.5312 14.6289 17.0156 14.2148C17.5 13.793 17.8867 13.1953 18.1758 12.4219C18.4727 11.6484 18.6211 10.7305 18.6211 9.66797C18.6211 8.61328 18.4727 7.70312 18.1758 6.9375C17.8867 6.16406 17.5 5.57031 17.0156 5.15625C16.5312 4.73438 16 4.52344 15.4219 4.52344C14.8672 4.52344 14.3555 4.73438 13.8867 5.15625C13.418 5.57031 13.043 6.16406 12.7617 6.9375C12.4805 7.70312 12.3398 8.61328 12.3398 9.66797C12.3398 10.7305 12.4805 11.6484 12.7617 12.4219C13.043 13.1953 13.418 13.793 13.8867 14.2148C14.3555 14.6289 14.8672 14.8359 15.4219 14.8359Z"
+											fill="#A6AFB3" />
+									</svg>
+									<span>Услуги</span>
+								</button>
+								<button type="button" class="app-main__title">
+									<svg width="21" height="22" viewBox="0 0 21 22" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M2.87109 21.7031C0.957031 21.7031 0 21.0781 0 19.8281C0 19.0625 0.234375 18.2461 0.703125 17.3789C1.17188 16.5117 1.84766 15.6953 2.73047 14.9297C3.62109 14.1562 4.69531 13.5273 5.95312 13.043C7.21875 12.5586 8.64844 12.3164 10.2422 12.3164C11.8281 12.3164 13.25 12.5586 14.5078 13.043C15.7734 13.5273 16.8477 14.1562 17.7305 14.9297C18.6211 15.6953 19.3008 16.5117 19.7695 17.3789C20.2383 18.2461 20.4727 19.0625 20.4727 19.8281C20.4727 21.0781 19.5156 21.7031 17.6016 21.7031H2.87109ZM2.32031 19.9336H18.1641C18.3125 19.9336 18.418 19.9102 18.4805 19.8633C18.5508 19.8164 18.5859 19.7305 18.5859 19.6055C18.5859 19.1289 18.4023 18.5781 18.0352 17.9531C17.6758 17.3203 17.1406 16.7109 16.4297 16.125C15.7188 15.5391 14.8438 15.0547 13.8047 14.6719C12.7734 14.2812 11.5859 14.0859 10.2422 14.0859C8.89844 14.0859 7.70703 14.2812 6.66797 14.6719C5.62891 15.0547 4.75391 15.5391 4.04297 16.125C3.33203 16.7109 2.79297 17.3203 2.42578 17.9531C2.06641 18.5781 1.88672 19.1289 1.88672 19.6055C1.88672 19.7305 1.91797 19.8164 1.98047 19.8633C2.05078 19.9102 2.16406 19.9336 2.32031 19.9336ZM10.2422 10.8633C9.3125 10.8633 8.46484 10.6172 7.69922 10.125C6.93359 9.625 6.32031 8.96094 5.85938 8.13281C5.40625 7.29688 5.17969 6.37891 5.17969 5.37891C5.17969 4.38672 5.40625 3.48438 5.85938 2.67188C6.32031 1.85938 6.93359 1.21094 7.69922 0.726562C8.46484 0.242188 9.3125 0 10.2422 0C11.1797 0 12.0312 0.238281 12.7969 0.714844C13.5625 1.19141 14.1719 1.83594 14.625 2.64844C15.0781 3.45312 15.3047 4.35547 15.3047 5.35547C15.3047 6.36328 15.0742 7.28516 14.6133 8.12109C14.1602 8.94922 13.5508 9.61328 12.7852 10.1133C12.0195 10.6133 11.1719 10.8633 10.2422 10.8633ZM10.2422 9.09375C10.8203 9.09375 11.3477 8.92578 11.8242 8.58984C12.3086 8.25391 12.6953 7.80469 12.9844 7.24219C13.2734 6.67188 13.418 6.04297 13.418 5.35547C13.418 4.67578 13.2734 4.06641 12.9844 3.52734C12.7031 2.98047 12.3203 2.55078 11.8359 2.23828C11.3594 1.92578 10.8281 1.76953 10.2422 1.76953C9.66406 1.76953 9.13281 1.92969 8.64844 2.25C8.17188 2.57031 7.78906 3.00391 7.5 3.55078C7.21094 4.08984 7.06641 4.69922 7.06641 5.37891C7.06641 6.06641 7.21094 6.69141 7.5 7.25391C7.79688 7.81641 8.18359 8.26562 8.66016 8.60156C9.14453 8.92969 9.67188 9.09375 10.2422 9.09375Z"
+											fill="#A6AFB3" />
+									</svg>
+									<span>Аккаунт</span>
+								</button>
+								<button type="button" class="app-main__title">
+									<svg width="20" height="19" viewBox="0 0 20 19" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M10.1 15.55L10 15.65L9.89 15.55C5.14 11.24 2 8.39 2 5.5C2 3.5 3.5 2 5.5 2C7.04 2 8.54 3 9.07 4.36H10.93C11.46 3 12.96 2 14.5 2C16.5 2 18 3.5 18 5.5C18 8.39 14.86 11.24 10.1 15.55ZM14.5 0C12.76 0 11.09 0.81 10 2.08C8.91 0.81 7.24 0 5.5 0C2.42 0 0 2.41 0 5.5C0 9.27 3.4 12.36 8.55 17.03L10 18.35L11.45 17.03C16.6 12.36 20 9.27 20 5.5C20 2.41 17.58 0 14.5 0Z"
+											fill="#A6AEB2" />
+									</svg>
+									<span>Избранное</span>
+								</button>
+							</nav>
+							<div data-tabs-body class="app-main__content">
+								<div class="app-main__inner">
+									<div class="app-main__main main-app">
+										<div class="main-app__body">
+											<div class="main-app__header header _calc-box">
+												<div class="header__body">
+													<div class="header__search-box">
+														<div class="header__search">
+															<input type="text" class="header__input">
+															<div data-popup="#search-box" class="header__icon-search"></div>
+														</div>
+														<div class="header__bell"></div>
+													</div>
+													<div class="header__calc-box calc-box">
+														<div class="calc-box__body">
+															<div class="calc-box__title">Привет, Иван!</div>
+															<div class="calc-box__button-box">
+																<div class="calc-box__buttons">
+																	<button type="button" data-popup="#hypot-calc"
+																		class="calc-box__button">
+																		<span>Ипотечный калькулятор</span>
+																		<img src="@img/icons/calc.svg" alt="Icon">
+																	</button>
+																	<button type="button" data-popup="#credit-calc"
+																		class="calc-box__button">
+																		<span>Кредитный калькулятор</span>
+																		<img src="@img/icons/credit-calc.svg" alt="Icon">
+																	</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div data-spollers class="main-app__spollers spollers">
+												<div class="spollers__item">
+													<button type="button" data-spoller class="spollers__title">Кредиты</button>
+													<div class="spollers__body spollers__credit-main credit-main">
+														<div class="credit-main__body">
+															<div class="credit-main__items">
+																<button type="button" data-btn="credit-cash" data-popup="#credit-cash"
+																	class="credit-main__item">
+																	<span class="credit-main__icon">
+																		<img src="@img/main/credits/icon-1.svg" alt="Icon">
+																	</span>
+																	<span class="credit-main__text">Наличными</span>
+																</button>
+																<button type="button" data-btn="credit-hypot" data-popup="#credit-hypot"
+																	class="credit-main__item">
+																	<span class="credit-main__icon">
+																		<img src="@img/main/credits/icon-2.svg" alt="Icon">
+																	</span>
+																	<span class="credit-main__text">Ипотека</span>
+																</button>
+																<button type="button" data-btn="credit-card" data-popup="#credit-cards"
+																	class="credit-main__item">
+																	<span class="credit-main__icon">
+																		<img src="@img/main/credits/icon-3.svg" alt="Icon">
+																	</span>
+																	<span class="credit-main__text">Карты</span>
+																</button>
+																<button type="button" data-btn="credit-auto" data-popup="#credit-auto"
+																	class="credit-main__item">
+																	<span class="credit-main__icon">
+																		<img src="@img/main/credits/icon-4.svg" alt="Icon">
+																	</span>
+																	<span class="credit-main__text">Автокредит</span>
+																</button>
+															</div>
+															<div class="credit-main__button-box">
+																<button type="button" data-id="1" data-modal
+																	class="credit-main__button button"><span>Подбор
+																		кредита</span></button>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="spollers__item">
+													<button type="button" data-spoller class="spollers__title">Банковские
+														карты</button>
+													<div class="spollers__body">
+														<div class="spollers__bank-cards-main bank-cards-main">
+															<div class="bank-cards-main__body">
+																<button type="button" data-btn="debet-main" data-popup="#debet-cards"
+																	class="bank-cards-main__item">
+																	<img src="@img/main/debet/icon-1.svg" alt="Icon">
+																	<span class="bank-cards-main__text">Дебетовые</span>
+																</button>
+																<button type="button" data-btn="installment-main"
+																	data-popup="#debet-installment" class="bank-cards-main__item">
+																	<img src="@img/main/debet/icon-2.svg" alt="Icon">
+																	<span class="bank-cards-main__text">Карты рассрочки</span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="spollers__item">
+													<button type="button" data-spoller class="spollers__title">Новости</button>
+													<div class="spollers__body">
+														<div class="spollers__news news-main">
+															<div class="news-main__body">
+																<button type="button" data-popup="#card-1"
+																	class="news-main__button -ibg">
+																	<img src="@img/news/title-1.png" alt="Image">
+																	<span>Что такое ипотека- простыми словами и какие бывают ипотечные
+																		программы</span>
+																</button>
+																<button type="button" data-popup="#card-2"
+																	class="news-main__button -ibg">
+																	<img src="@img/news/title-2.png" alt="Image">
+																	<span>О важном: Можно ли рефинансировать рефинансированный
+																		кредит?</span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="app-main__inner">
+									<div class="app-main__services services">
+										<div class="services__body">
+											<div class="services__header header">
+												<div class="header__body">
+													<div class="header__search-box">
+														<div class="header__search">
+															<input type="text" class="header__input">
+															<div data-popup="#search-box" class="header__icon-search"></div>
+														</div>
+														<div class="header__bell"></div>
+													</div>
+												</div>
+											</div>
+											<div class="services__items">
+												<div class="services__item">
+													<div class="services__title">Услуги</div>
+													<div class="services__calc-box calc-box">
+														<div class="calc-box__body">
+															<div class="calc-box__button-box">
+																<div class="calc-box__buttons">
+																	<button type="button" data-popup="#services-ref"
+																		class="calc-box__button">
+																		<img src="@img/icons/ref.svg" alt="Icon">
+																		<span>Рефинансирование</span>
+																	</button>
+																	<button type="button" data-popup="#services-insurance"
+																		class="calc-box__button">
+																		<img src="@img/icons/insurance.svg" alt="Icon">
+																		<span>Страхование</span>
+																	</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="services__item">
+													<div class="services__title">Новости</div>
+													<div class="services__news news-main">
+														<div class="news-main__body">
+															<button type="button" data-popup="#card-1" class="news-main__button -ibg">
+																<img src="@img/news/title-1.png" alt="Image">
+																<span>Что такое ипотека- простыми словами и какие бывают ипотечные
+																	программы</span>
+															</button>
+															<button type="button" data-popup="#card-2" class="news-main__button -ibg">
+																<img src="@img/news/title-2.png" alt="Image">
+																<span>О важном: Можно ли рефинансировать рефинансированный
+																	кредит?</span>
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="app-main__inner">
+									<div class="app-main__profile profile">
+										<div class="profile__body">
+											<div class="profile__header header">
+												<div class="header__body">
+													<div class="header__search-box">
+														<div class="header__search">
+															<input type="text" class="header__input">
+															<div data-popup="#search-box" class="header__icon-search"></div>
+														</div>
+														<div class="header__bell"></div>
+													</div>
+													<div class="header__user-data">
+														<div class="header__photo">
+															<img src="@img/accaunt/user.png" alt="Image">
+														</div>
+														<div class="header__name-box">
+															<input type="text" value="Иван Иванов" class="header__name _hold">
+															<button type="button" data-btn="change-name"
+																class="header__button-change">Изменить имя</button>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="profile__settings">
+												<div class="profile__title">Настройки</div>
+												<div class="profile__buttons">
+													<button type="button" data-btn="notifications" class="profile__button">
+														<span class="profile__text">Уведомления</span>
+														<span class="profile__notif">Вкл.</span>
+													</button>
+													<button type="button" data-btn="privacy" class="profile__button">
+														<span class="profile__text">Политика конфиденциальности</span>
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="app-main__inner">
+									<div class="app-main__favorite favorite">
+										<div class="favorite__body">
+											<div class="favorite__header header">
+												<div class="header__body">
+													<div class="header__search-box">
+														<div class="header__search">
+															<input type="text" class="header__input">
+															<div data-popup="#search-box" class="header__icon-search"></div>
+														</div>
+														<div class="header__bell"></div>
+													</div>
+												</div>
+											</div>
+											<div class="favorite__items">
+												<div class="favorite__item">
+													<div class="favorite__title">Кредиты</div>
+													<div data-spollers class="favorite__spollers spollers">
+														<div class="spollers__item">
+															<button type="button" data-spoller
+																class="spollers__title">Наличные</button>
+															<div data-item-parent="credit-cash" class="spollers__body">
+																<div class="spollers__empty">Нет сохраненных продуктов</div>
+															</div>
+														</div>
+														<div class="spollers__item">
+															<button type="button" data-spoller class="spollers__title">Карты</button>
+															<div data-item-parent="credit-cards" class="spollers__body">
+																<div class="spollers__empty">Нет сохраненных продуктов</div>
+															</div>
+														</div>
+														<div class="spollers__item">
+															<button type="button" data-spoller class="spollers__title">Ипотека</button>
+															<div data-item-parent="credit-hypot" class="spollers__body">
+																<div class="spollers__empty">Нет сохраненных продуктов</div>
+															</div>
+														</div>
+														<div class="spollers__item">
+															<button type="button" data-spoller
+																class="spollers__title">Автокредит</button>
+															<div data-item-parent="credit-auto" class="spollers__body">
+																<div class="spollers__empty">Нет сохраненных продуктов</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="favorite__item">
+													<div class="favorite__title">Дебетовые карты</div>
+													<div data-spollers class="favorite__spollers spollers">
+														<div class="spollers__item">
+															<button type="button" data-spoller
+																class="spollers__title">Дебетовые</button>
+															<div data-item-parent="debet-cards" class="spollers__body">
+																<div class="spollers__empty">Нет сохраненных продуктов</div>
+															</div>
+														</div>
+														<div class="spollers__item">
+															<button type="button" data-spoller class="spollers__title">Карты
+																рассрочки</button>
+															<div data-item-parent="debet-installment" class="spollers__body">
+																<div class="spollers__empty">Нет сохраненных продуктов</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="favorite__item">
+													<div class="favorite__title">Прочее</div>
+													<div data-spollers class="favorite__spollers spollers">
+														<div class="spollers__item">
+															<button type="button" data-spoller
+																class="spollers__title">Рефенансирование</button>
+															<div data-item-parent="ref" class="spollers__body">
+																<div class="spollers__empty">Нет сохраненных продуктов</div>
+															</div>
+														</div>
+														<div class="spollers__item">
+															<button type="button" data-spoller
+																class="spollers__title">Страхование</button>
+															<div data-item-parent="insurance" class="spollers__body">
+																<div class="spollers__empty">Нет сохраненных продуктов</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="wrapper__modal modal">
+			<div class="modal__body">
+				<div class="modal__id">Identificator: <span>111</span></div>
+				<div data-btn="modal" class="modal__button"><span>Ok</span></div>
+			</div>
+		</div> -->
+
+	</div>
+
+	@@include('html/_popup.htm',{})
+	@@include('html/_js.htm',{})
+</body>
+
+</html>
