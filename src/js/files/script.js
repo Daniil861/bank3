@@ -1,6 +1,7 @@
 import debounce from "lodash.debounce";
 
 import { configMain } from "./mainData.js";
+import { getArrStorrage, removeNumberStorrage, addNumberStorrage, saveArrStorrage } from './functions.js';
 
 const nameInput = document.querySelector('.input-start-screen__name');
 const lastNameInput = document.querySelector('.input-start-screen__lastName');
@@ -39,6 +40,11 @@ export function initStartData() {
 		document.querySelector('[data-start-tab]').classList.remove('_tab-active');
 		localStorage.setItem('previus-page', 'start');
 	}
+
+	if (!localStorage.getItem('favorite-items')) {
+		const arr = [];
+		saveArrStorrage(arr, 'favorite-items');
+	}
 }
 
 export function writeUserDataToConfig() {
@@ -67,6 +73,8 @@ const favoriteItems = document.querySelector('.favorite__items');
 
 // Проверяем есть ли в массиве продукт, по которому сейчас кликнули. Если нет - добавляем, если есть - удаляем.
 export function checkAvailabilityFavoriteItem(number) {
+	const favoriteArr = getArrStorrage('favorite-items');
+
 	if (favoriteConfig.arrFavoriteProducts.includes(number)) {
 		return true;
 	} else {
@@ -79,8 +87,13 @@ export function addRemoveNumberForStorrage(number, status) {
 	if (status) {
 		const pos = favoriteConfig.arrFavoriteProducts.indexOf(number);
 		favoriteConfig.arrFavoriteProducts.splice(pos, 1);
+		removeNumberStorrage('favorite-items', number);
 	} else {
-		favoriteConfig.arrFavoriteProducts.push(number);
+		if (!favoriteConfig.arrFavoriteProducts.includes(number)) {
+			favoriteConfig.arrFavoriteProducts.push(number);
+		}
+
+		addNumberStorrage('favorite-items', number);
 	}
 }
 
@@ -102,9 +115,10 @@ export function removeItemFromFavoriteScreen(number) {
 	})
 }
 
+// После удаления из массива проходимся по всем карточкам, сохраняем в новый массив карточки с классом _selected и потом проверяем есть ли
+// в актуальном массиве эти номера - номера, которого нет - у него забираем класс _selected
 export function removeSelectedFavorite() {
 	const favoriteItemsAll = document.querySelectorAll('[data-prod]');
-
 
 	const arr = Array.from(favoriteItemsAll);
 	const newArr = [];
@@ -117,9 +131,7 @@ export function removeSelectedFavorite() {
 		if (!favoriteConfig.arrFavoriteProducts.includes(+block.dataset.prod)) {
 			block.querySelector('.header-item-product__favorite').classList.remove('_selected');
 		}
-
 	})
-
 
 }
 
@@ -134,6 +146,38 @@ export function checkEmptyfavoriteBlock(group) {
 		parent.classList.remove('_hide-empty');
 	}
 }
+
+// Когда перезагружаем страницу - берем данные из памяти браузера
+function refreshFavoriteItems() {
+	const currentFavoriteArr = getArrStorrage('favorite-items');
+	if (currentFavoriteArr.length && document.querySelector('.item-product')) {
+		addSelectedClassFavoriteItemsAfterRefresh(currentFavoriteArr);
+
+	}
+}
+
+function addSelectedClassFavoriteItemsAfterRefresh(currentFavoriteArr) {
+	const favoriteItemsAll = document.querySelectorAll('[data-prod]');
+
+	currentFavoriteArr.forEach(item => {
+		favoriteItemsAll.forEach(block => {
+			if (block.dataset.prod == item) {
+				if (!favoriteConfig.arrFavoriteProducts.includes(item)) {
+					favoriteConfig.arrFavoriteProducts.push(item);
+				}
+
+				const group = block.dataset.itemChild;
+				block.querySelector('.header-item-product__favorite').classList.add('_selected');
+				if (group) {
+					cloneCurrentItemAndDrawToFavorite(block, group);
+					checkEmptyfavoriteBlock(group);
+				}
+			}
+		})
+	})
+}
+
+refreshFavoriteItems();
 
 //========================================================================================================================================================
 // filter credit cards

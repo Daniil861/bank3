@@ -120,6 +120,7 @@ document.addEventListener('click', (e) => {
 
 		checkEmptyfavoriteBlock(group);
 	}
+	console.log(favoriteConfig.arrFavoriteProducts);
 
 	//===
 	// search

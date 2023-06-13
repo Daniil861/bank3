@@ -711,7 +711,7 @@ export function addMoney(count, block, delay, delay_off) {
 
 // Сохраняем изначальный массив
 export function saveArrStorrage(arr, name) {
-	sessionStorage.setItem(name, JSON.stringify(arr));
+	localStorage.setItem(name, JSON.stringify(arr));
 }
 
 // Добавляем значение в созданный массив
@@ -721,18 +721,18 @@ export function addNumberStorrage(name, number) {
 	saveArrStorrage(arr, name);
 }
 
-// Добавляем значение в созданный массив
+// Убираем значение из созданного массива
 export function removeNumberStorrage(name, number) {
 	let arr = getArrStorrage(name);
 
 	const newArr = arr.filter(item => item != number);
-	console.log(newArr);
+
 	saveArrStorrage(newArr, name);
 }
 
 // Получаем массив из памяти
 export function getArrStorrage(name) {
-	let arr = JSON.parse(sessionStorage.getItem(name));
+	let arr = JSON.parse(localStorage.getItem(name));
 	let numbers = arr;
 	numbers.sort(function (a, b) {
 		return a - b;
