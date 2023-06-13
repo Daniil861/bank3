@@ -31,6 +31,14 @@ export function initStartData() {
 	if (profileName && configMain.user.fullName) {
 		profileName.value = configMain.user.fullName;
 	}
+
+	if (!sessionStorage.getItem('previus-page')) {
+		sessionStorage.setItem('previus-page', 'start');
+	} else if (document.querySelector('[data-person-tab]') && sessionStorage.getItem('previus-page') && sessionStorage.getItem('previus-page') == 'privacy') {
+		document.querySelector('[data-person-tab]').classList.add('_tab-active');
+		document.querySelector('[data-start-tab]').classList.remove('_tab-active');
+		sessionStorage.setItem('previus-page', 'start');
+	}
 }
 
 export function writeUserDataToConfig() {
@@ -47,19 +55,6 @@ export function showMainScreen() {
 }
 
 initStartData();
-
-//========================================================================================================================================================
-// Для организации поиска, нужно создать объект с информацией о продуктах
-//	В объекте должны быть под объекты, с тематиками продуктов.
-//	Для каждой тематики под продукты будет свой класс, для создания нового продукта
-
-
-// Что осталось:
-//	++1. Доверстать калькуляторы
-//	++2. Привязать формулы к калькуляторам
-//	++3. Работа избранного - если кликаем на избранное, данный блок добавляем в избранное и везде этот блок отображается с избранным
-//	4. Создать отдельный экран для поиска - настроить работу поиска
-//	5. Адаптив
 
 //========================================================================================================================================================
 // favorite

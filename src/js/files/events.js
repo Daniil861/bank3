@@ -18,10 +18,6 @@ const mainTitleName = document.querySelector('.calc-box__title');
 document.addEventListener('click', (e) => {
 	let targetElement = e.target;
 
-	// if (targetElement.closest('[type="checkbox"]') && targetElement.closest('.input-start-screen')) {
-	// 	configMain.isAcceptPrivacy = privacyCheckbox.checked;
-	// }
-
 	if (targetElement.closest('[data-btn="privacy-to-main"')) {
 		location.href = 'index.html';
 	}
@@ -46,6 +42,7 @@ document.addEventListener('click', (e) => {
 	}
 
 	if (targetElement.closest('[data-btn="privacy"]')) {
+		sessionStorage.setItem('previus-page', 'privacy');
 		location.href = 'privacy.html';
 	}
 
@@ -91,34 +88,6 @@ document.addEventListener('click', (e) => {
 
 	//===
 	// favorite logic
-	// if (targetElement.closest('.header-item-product__favorite')) {
-	// 	const number = +targetElement.closest('[data-prod]').dataset.prod;
-
-	// 	const isAlredyFavorit = checkAvailabilityFavoriteItem(number);
-
-	// 	if (isAlredyFavorit) { // Если блок уже в массиве избранных
-
-	// 		// Вешаем класс _selected на блок, чтобы изменить цвет и иконку в слове "Избранное"
-	// 		targetElement.closest('.header-item-product__favorite').classList.remove('_selected');
-
-	// 		// Удаляем со страницы избранного блок с номером
-	// 		removeItemFromFavoriteScreen(number);
-
-	// 		// Добавляем новое число в массив избранных блоков
-	// 		addRemoveNumberForStorrage(number, true);
-
-	// 		removeSelectedFavorite();
-	// 	} else {
-	// 		// Вешаем класс _selected на блок, чтобы изменить цвет и иконку в слове "Избранное"
-	// 		targetElement.closest('.header-item-product__favorite').classList.add('_selected');
-
-	// 		//	Клонируем блок и записываем его на страницу избранных блоков
-	// 		cloneCurrentItemAndDrawToFavorite(targetElement.closest('[data-prod'));
-
-	// 		// Удаляем число из массива избранных блоков
-	// 		addRemoveNumberForStorrage(number, false);
-	// 	}
-	// }
 
 	if (targetElement.closest('.header-item-product__favorite')) {
 		const number = +targetElement.closest('[data-prod]').dataset.prod;
