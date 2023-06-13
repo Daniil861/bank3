@@ -8,18 +8,18 @@ const mainTitleName = document.querySelector('.calc-box__title');
 const profileName = document.querySelector('.header__name');
 
 export function initStartData() {
-	if (sessionStorage.getItem('user-name') && nameInput) {
-		nameInput.value = sessionStorage.getItem('user-name');
-		mainTitleName.textContent = `Привет, ${sessionStorage.getItem('user-name')}!`;
-		configMain.user.name = sessionStorage.getItem('user-name');
+	if (localStorage.getItem('user-name') && nameInput) {
+		nameInput.value = localStorage.getItem('user-name');
+		mainTitleName.textContent = `Привет, ${localStorage.getItem('user-name')}!`;
+		configMain.user.name = localStorage.getItem('user-name');
 	}
 
-	if (sessionStorage.getItem('user-last-name') && lastNameInput) {
-		lastNameInput.value = sessionStorage.getItem('user-last-name');
-		configMain.user.lastName = sessionStorage.getItem('user-last-name');
+	if (localStorage.getItem('user-last-name') && lastNameInput) {
+		lastNameInput.value = localStorage.getItem('user-last-name');
+		configMain.user.lastName = localStorage.getItem('user-last-name');
 	}
 
-	if (sessionStorage.getItem('privacy') && document.querySelector('.main')) {
+	if (localStorage.getItem('privacy') && document.querySelector('.main')) {
 		document.querySelector('.start-screen').classList.add('_hide');
 		document.querySelector('.main').classList.remove('_hide');
 	}
@@ -32,12 +32,12 @@ export function initStartData() {
 		profileName.value = configMain.user.fullName;
 	}
 
-	if (!sessionStorage.getItem('previus-page')) {
-		sessionStorage.setItem('previus-page', 'start');
-	} else if (document.querySelector('[data-person-tab]') && sessionStorage.getItem('previus-page') && sessionStorage.getItem('previus-page') == 'privacy') {
+	if (!localStorage.getItem('previus-page')) {
+		localStorage.setItem('previus-page', 'start');
+	} else if (document.querySelector('[data-person-tab]') && localStorage.getItem('previus-page') && localStorage.getItem('previus-page') == 'privacy') {
 		document.querySelector('[data-person-tab]').classList.add('_tab-active');
 		document.querySelector('[data-start-tab]').classList.remove('_tab-active');
-		sessionStorage.setItem('previus-page', 'start');
+		localStorage.setItem('previus-page', 'start');
 	}
 }
 
@@ -47,7 +47,7 @@ export function writeUserDataToConfig() {
 
 export function showMainScreen() {
 	document.querySelector('.main').classList.remove('_hide');
-	sessionStorage.setItem('privacy', true);
+	localStorage.setItem('privacy', true);
 
 	if (profileName && configMain.user.fullName) {
 		profileName.value = configMain.user.fullName;

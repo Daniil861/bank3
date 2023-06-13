@@ -42,7 +42,7 @@ document.addEventListener('click', (e) => {
 	}
 
 	if (targetElement.closest('[data-btn="privacy"]')) {
-		sessionStorage.setItem('previus-page', 'privacy');
+		localStorage.setItem('previus-page', 'privacy');
 		location.href = 'privacy.html';
 	}
 
@@ -139,15 +139,15 @@ document.addEventListener('click', (e) => {
 if (nameInput) {
 	nameInput.addEventListener('change', (e) => {
 		configMain.user.name = e.target.value;
-		sessionStorage.setItem('user-name', configMain.user.name);
-		mainTitleName.textContent = `Привет, ${sessionStorage.getItem('user-name')}!`;
+		localStorage.setItem('user-name', configMain.user.name);
+		mainTitleName.textContent = `Привет, ${localStorage.getItem('user-name')}!`;
 	})
 }
 
 if (lastNameInput) {
 	lastNameInput.addEventListener('change', (e) => {
 		configMain.user.lastName = e.target.value;
-		sessionStorage.setItem('user-last-name', configMain.user.lastName);
+		localStorage.setItem('user-last-name', configMain.user.lastName);
 	})
 }
 
@@ -159,8 +159,8 @@ if (profileName) {
 		configMain.user.name = arr[0];
 		configMain.user.lastName = arr[1];
 
-		sessionStorage.setItem('user-name', configMain.user.name);
-		sessionStorage.setItem('user-last-name', configMain.user.lastName);
+		localStorage.setItem('user-name', configMain.user.name);
+		localStorage.setItem('user-last-name', configMain.user.lastName);
 
 		initStartData();
 	})
