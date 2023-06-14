@@ -4,6 +4,7 @@ import {
 } from './script.js';
 import { configMain } from './mainData.js';
 import { calcConfig, startCountCreditCalc, changeSelectTypeCountHypot, startCountHypotCalc } from './calculators.js';
+// import { initModalButtons } from './modal.js';
 
 const privacyCheckbox = document.getElementById('c_2');
 const textNotifications = document.querySelector('.profile__notif');
@@ -90,6 +91,7 @@ document.addEventListener('click', (e) => {
 	// favorite logic
 
 	if (targetElement.closest('.header-item-product__favorite')) {
+
 		const number = +targetElement.closest('[data-prod]').dataset.prod;
 		const group = targetElement.closest('[data-prod]').dataset.itemChild;
 
@@ -119,8 +121,8 @@ document.addEventListener('click', (e) => {
 		}
 
 		checkEmptyfavoriteBlock(group);
+		// initModalButtons();
 	}
-	console.log(favoriteConfig.arrFavoriteProducts);
 
 	//===
 	// search

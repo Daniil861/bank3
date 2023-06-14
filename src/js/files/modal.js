@@ -1,20 +1,15 @@
-const modalItems = document.querySelectorAll('[data-modal]');
 
+document.addEventListener('click', (e) => {
+	let targetElement = e.target;
 
-if (modalItems.length) {
-	modalItems.forEach(button => {
-		button.addEventListener('click', () => {
-
-			if (button.dataset.id) {
-				setTimeout(() => {
-					showModal(button);
-				}, 300);
-			}
-		})
-	})
-}
+	if (targetElement.closest('[data-modal]') && targetElement.closest('[data-modal]').dataset.id) {
+		showModal(targetElement.closest('[data-modal]'));
+	}
+})
 
 function showModal(button) {
 	const id = button.dataset.id;
 	window.alert(`Identificator: ${id}`);
 }
+
+

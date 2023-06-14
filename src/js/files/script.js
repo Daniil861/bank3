@@ -69,8 +69,6 @@ export const favoriteConfig = {
 	arrFavoriteProducts: []
 }
 
-const favoriteItems = document.querySelector('.favorite__items');
-
 // Проверяем есть ли в массиве продукт, по которому сейчас кликнули. Если нет - добавляем, если есть - удаляем.
 export function checkAvailabilityFavoriteItem(number) {
 	const favoriteArr = getArrStorrage('favorite-items');
